@@ -1,0 +1,8 @@
+data/
+external/
+models/
+__pycache__/
+.ipynb_checkpoints/
+*.pkl
+*.joblib
+.env

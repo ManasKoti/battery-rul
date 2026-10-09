@@ -115,9 +115,14 @@ def clean_capacity(qd: np.ndarray, low: float = 0.5 * NOMINAL_AH, high: float = 
     return qd
 
 
-def cycle_life(qd: np.ndarray, eol_ah: float = EOL_AH, window: int = 5) -> float:
+def cycle_life(qd: np.ndarray, eol_ah: float = EOL_AH, window: int = 5,
+               end_tol: float = 0.01) -> float:
     """Cycle number at which capacity first falls to 80% of nominal."""
     
     smooth = median_filter(clean_capacity(qd), size=window, mode="nearest")
     below = np.flatnonzero(smooth <= eol_ah)
-    return float(below[0] + 1) if below.size else float("nan")
+    if below.size:
+        return float(below[0] + 1)
+    if smooth[-1] <= eol_ah + end_tol:
+        return float(len(smooth))
+    return float("nan")

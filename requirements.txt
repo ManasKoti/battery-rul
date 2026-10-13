@@ -1,3 +1,4 @@
+--extra-index-url https://download.pytorch.org/whl/cu130
 altair==6.3.0
 anyio==4.15.1
 asttokens==3.0.2

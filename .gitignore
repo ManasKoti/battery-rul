@@ -1,3 +1,4 @@
+.vscode/
 data/
 external/
 models/
@@ -6,4 +7,3 @@ __pycache__/
 *.pkl
 *.joblib
 .env
-.vscode/

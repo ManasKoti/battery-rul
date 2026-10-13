@@ -67,3 +67,12 @@ def build_feature_table(cells: dict, ids: list, early: int = 10, late: int = 100
         print(f"Warning: {len(missing)} cells not found: {missing}")
     df = pd.DataFrame(rows).set_index("cell_id")
     return df.dropna(subset=["cycle_life"])
+
+def load_tables(early: int = 10, late: int = 100):
+    """Load the cache and build the train/test feature tables in one call."""
+    
+    from .data import load_cache
+    from .splits import SPLITS
+    cells = load_cache()
+    tables = {name: build_feature_table(cells, ids, early, late) for name, ids in SPLITS.items()}
+    return cells, tables

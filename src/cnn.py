@@ -104,3 +104,17 @@ def predict_cnn(model, qdlins, device=None):
     model.eval()
     z = model(x).cpu().numpy()
     return 10 ** (z * m["y_std"] + m["y_mean"])
+
+def save_cnn(model, path):
+    """Save weights + normalisation constants together (meta isn't in state_dict)."""
+    torch.save({"state": model.state_dict(), "meta": model.meta}, path)
+
+
+def load_cnn(path, device=None):
+    device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+    ckpt = torch.load(path, map_location=device)
+    model = DeltaQCNN().to(device)
+    model.load_state_dict(ckpt["state"])
+    model.meta = ckpt["meta"]
+    model.eval()
+    return model

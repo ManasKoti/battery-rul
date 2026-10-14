@@ -1,0 +1,11 @@
+,RMSE (cycles),RMSE (cycles),RMSE (cycles),MAPE (%),MAPE (%),MAPE (%)
+,primary_test,secondary_test,train,primary_test,secondary_test,train
+1D CNN (5-seed ensemble),317.6,372.9,238.6,14.8,21.0,13.3
+"LightGBM (full, tuned)",215.9,350.4,133.8,13.2,17.1,5.0
+elastic net (discharge),221.2,143.9,78.5,13.6,10.4,10.4
+elastic net (full),136.0,261.5,80.1,10.3,15.3,9.0
+elastic net (variance),136.6,211.4,121.7,15.4,11.9,16.1
+mean baseline,388.8,469.9,322.8,31.9,31.2,33.5
+[BatteryML] mean baseline,398.0,510.0,,,,
+[BatteryML] variance model,136.0,211.0,,,,
+[BatteryML] XGBoost,334.0,799.0,,,,

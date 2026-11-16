@@ -30,7 +30,7 @@ def results_table(results: dict) -> pd.DataFrame:
 
 def parity_plot(y_true, y_pred, title="", ax=None, lower=None, upper=None):
     """Predicted vs true cycle life. Points on the diagonal are perfect predictions."""
-    
+
     ax = ax or plt.gca()
     y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
     if lower is not None:

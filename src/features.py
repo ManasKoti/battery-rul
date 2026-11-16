@@ -54,7 +54,7 @@ FULL_FEATURES = ["dq_log_min", "dq_log_var", "qd_slope_2_late", "qd_intercept_2_
 
 def build_feature_table(cells: dict, ids: list, early: int = 10, late: int = 100) -> pd.DataFrame:
     """One row per cell: features + the target (cycle life). Missing cells are reported."""
-    
+
     rows, missing = [], []
     for cid in ids:
         if cid not in cells:
@@ -70,7 +70,7 @@ def build_feature_table(cells: dict, ids: list, early: int = 10, late: int = 100
 
 def load_tables(early: int = 10, late: int = 100):
     """Load the cache and build the train/test feature tables in one call."""
-    
+
     from .data import load_cache
     from .splits import SPLITS
     cells = load_cache()

@@ -1,6 +1,6 @@
-"""The train / primary test / secondary test split from Severson et al. (2019),as used by BatteryML.
+"""The train / primary test / secondary test split from Severson et al. (2019), as used by BatteryML.
 
-Five batch-1 cells (b1c8, b1c10, b1c12, b1c13, b1c22) never reached 80% and are excluded. 
+Five batch-1 cells (b1c8, b1c10, b1c12, b1c13, b1c22) never reached 80% and are excluded.
 b2c1 is a known outlier removed from the primary test set (as BatteryML does).
 """
 

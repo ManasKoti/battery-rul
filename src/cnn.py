@@ -50,7 +50,7 @@ class DeltaQCNN(nn.Module):
 
 
 def train_cnn(train_qdlins, train_lives, val_qdlins, val_lives, seed=0, epochs=400, lr=1e-3, weight_decay=1e-3, batch_size=8, patience=60, device=None, verbose=False):
-    """Train one CNN with early stopping on a validation set of *cells*.""" 
+    """Train one CNN with early stopping on a validation set of *cells*."""
 
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
     torch.manual_seed(seed)

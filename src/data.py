@@ -82,7 +82,7 @@ def build_cache(processed_dir: Path = PROCESSED_DIR, out_path: Path = CACHE_PATH
 
     files = sorted(Path(processed_dir).glob("*.pkl"))
     if not files:
-        raise FileNotFoundError(f"No .pkl files in {processed_dir}. Run Step 2 first.")
+        raise FileNotFoundError(f"No .pkl files in {processed_dir}. Run the BatteryML download/preprocess first (see README).")
     cells = {}
     for f in tqdm(files, desc="Compacting cells"):
         with open(f, "rb") as fh:
@@ -118,7 +118,7 @@ def clean_capacity(qd: np.ndarray, low: float = 0.5 * NOMINAL_AH, high: float = 
 def cycle_life(qd: np.ndarray, eol_ah: float = EOL_AH, window: int = 5,
                end_tol: float = 0.01) -> float:
     """Cycle number at which capacity first falls to 80% of nominal."""
-    
+
     smooth = median_filter(clean_capacity(qd), size=window, mode="nearest")
     below = np.flatnonzero(smooth <= eol_ah)
     if below.size:

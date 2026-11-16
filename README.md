@@ -2,8 +2,6 @@
 
 Predicts how many cycles a lithium-ion cell will last using only its first 100 cycles. On the two held-out test sets of the MIT–Stanford–Toyota dataset, the final model has 13.6% and 10.4% mean absolute percentage error, and it gives conformal 90% prediction intervals with 83% and 95% empirical coverage.
 
-![Streamlit demo](reports/figures/demo.jpg)
-
 ## Results
 
 Dataset: MATR (Severson et al., 2019), 124 A123 LFP/graphite cells, using the published cell-level split (41 train, 42 primary test, 40 secondary test). Errors are in cycles (RMSE) and percent (MAPE).
